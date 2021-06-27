@@ -102,7 +102,7 @@ SoundCloudApi.renderSongs = function(tracks){
 
 // 4. Display cards in playlist
 SoundCloudApi.addToPlaylist = function(song){
-    
+  console.log("inside addto playlist ");
   SC.oEmbed(song, {
         auto_play: true
     }).then(function(embed){
