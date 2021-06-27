@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0;'>
+    <title>𝓜𝓮𝓵𝓸𝓭𝓲𝓯𝔂</title>
+    {% load static %}
+    <link rel='stylesheet' href='{% static "styles/semantic.min.css" %}'>
+    <link rel='stylesheet' href='{% static "styles/main.css" %}'>
+
+</head>
+<body id="soundcloud-player">
+
+<div class="ui container col">
+    <div class="col-left js-playlist">
+    </div>
+    <div class="col-right">
+        <div class="main">
+            <h1 style=" ">𝓜𝓮𝓵𝓸𝓭𝓲𝓯𝔂...</h1>
+            <p>Listen to your favoruite songs for free now!</p>
+            <p>Create your own favourite playlist and enjoy.</p>
+            <div class="ui massive icon input">
+                <input type="text" placeholder="Search for a song or artist..." class="js-search input-search">
+                <i class="search icon js-submit"></i>
+            </div>
+
+            <div class="search-results js-search-results ui cards">
+                
+                <!-- BEGIN CARD -->
+                
+                <!-- END CARD -->
+        
+            </div>
+        </div>
+    </div>
+</div>
+
+{% load static %}
+<script src="https://connect.soundcloud.com/sdk/sdk-3.3.2.js"></script>
+<script src='{% static "javascript/semantic.min.js" %}'></script>
+<script src="{% static 'javascript/main.js' %}"></script>
+</body>
+</html>
