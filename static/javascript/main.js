@@ -75,6 +75,7 @@ SoundCloudApi.renderSongs = function(tracks){
         var btn = document.createElement("div");
         btn.classList.add("ui", "bottom", "attached", "button", "js-button");
         btn.addEventListener('click', function(){
+            console.log("Play Clicked");
             SoundCloudApi.addToPlaylist(track.permalink_url);
         })
 
