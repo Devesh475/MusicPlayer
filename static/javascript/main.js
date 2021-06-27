@@ -106,6 +106,7 @@ SoundCloudApi.addToPlaylist = function(song){
   SC.oEmbed(song, {
         auto_play: true
     }).then(function(embed){
+        console.log("got promise");
         var leftbar = document.querySelector(".js-playlist");
         var box = document.createElement("div")
         var className = "container" + String(i++);
@@ -116,6 +117,7 @@ SoundCloudApi.addToPlaylist = function(song){
         inner.classList.add("inner");
         inner.innerHTML = embed.html;
         
+        console.log("created inner");
         var rmv = document.createElement("a");
         rmv.classList.add("rmvbtn","ui", "bottom", "attached", "button", "js-button");
         rmv.innerHTML = "Remove This Song";
@@ -128,7 +130,10 @@ SoundCloudApi.addToPlaylist = function(song){
         box.appendChild(inner);
         box.appendChild(rmv);
 
+        console.log("appended all items");
+
         leftbar.insertBefore(box, leftbar.firstChild);
+        console.log("append to playlist");
         // localStorage.setItem("key", leftbar.innerHTML)
     });
 
