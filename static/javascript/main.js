@@ -108,27 +108,29 @@ SoundCloudApi.addToPlaylist = function(song){
     }).then(function(embed){
         console.log("got promise");
         var leftbar = document.querySelector(".js-playlist");
+        console.log("leftbar");
         var box = document.createElement("div")
-        var className = "container" + String(i++);
+        console.log("box");
+        var className = "container"; // + String(i++);
         // localStorage.setItem("idx", i);
         box.classList.add(className);
-
+        console.log("addedclassto box");
         var inner = document.createElement("div");
         inner.classList.add("inner");
         inner.innerHTML = embed.html;
         
         console.log("created inner");
-        var rmv = document.createElement("a");
-        rmv.classList.add("rmvbtn","ui", "bottom", "attached", "button", "js-button");
-        rmv.innerHTML = "Remove This Song";
-        rmv.addEventListener("click", function(){
-            var b = rmv.parentElement;
-            b.remove();
-            // localStorage.setItem("key", leftbar.innerHTML)
-        });
+        // var rmv = document.createElement("a");
+        // rmv.classList.add("rmvbtn","ui", "bottom", "attached", "button", "js-button");
+        // rmv.innerHTML = "Remove This Song";
+        // rmv.addEventListener("click", function(){
+        //     var b = rmv.parentElement;
+        //     b.remove();
+        //     // localStorage.setItem("key", leftbar.innerHTML)
+        // });
 
         box.appendChild(inner);
-        box.appendChild(rmv);
+        // box.appendChild(rmv);
 
         console.log("appended all items");
 
@@ -143,17 +145,14 @@ SoundCloudApi.addToPlaylist = function(song){
 // var playlist = localStorage.getItem("key");
 // leftbar.innerHTML = playlist;
 
-var rmv = document.querySelector(".rmvbtn");
-if(rmv !== null){
-  rmv.addEventListener("click", function(e){
-    var del = e.path[1];
-    console.log(del);
-    del.remove();
-    // localStorage.setItem("key", leftbar.innerHTML);
-    location.reload();
-  });
-}
+// var rmv = document.querySelector(".rmvbtn");
+// if(rmv !== null){
+//   rmv.addEventListener("click", function(e){
+//     var del = e.path[1];
+//     console.log(del);
+//     del.remove();
+//     // localStorage.setItem("key", leftbar.innerHTML);
+//     location.reload();
+//   });
+// }
 
-function myfunc(e){
-    e.remove();
-}
