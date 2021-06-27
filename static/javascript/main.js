@@ -1,4 +1,4 @@
-var i = localStorage.getItem("idx");
+// var i = localStorage.getItem("idx");
 
 // 1. Search 
 var input = document.querySelector(".js-submit");
@@ -108,7 +108,7 @@ SoundCloudApi.addToPlaylist = function(song){
         var leftbar = document.querySelector(".js-playlist");
         var box = document.createElement("div")
         var className = "container" + String(i++);
-        localStorage.setItem("idx", i);
+        // localStorage.setItem("idx", i);
         box.classList.add(className);
 
         var inner = document.createElement("div");
@@ -121,21 +121,21 @@ SoundCloudApi.addToPlaylist = function(song){
         rmv.addEventListener("click", function(){
             var b = rmv.parentElement;
             b.remove();
-            localStorage.setItem("key", leftbar.innerHTML)
+            // localStorage.setItem("key", leftbar.innerHTML)
         });
 
         box.appendChild(inner);
         box.appendChild(rmv);
 
         leftbar.insertBefore(box, leftbar.firstChild);
-        localStorage.setItem("key", leftbar.innerHTML)
+        // localStorage.setItem("key", leftbar.innerHTML)
     });
 
 }
 
-var leftbar = document.querySelector(".js-playlist");
-var playlist = localStorage.getItem("key");
-leftbar.innerHTML = playlist;
+// var leftbar = document.querySelector(".js-playlist");
+// var playlist = localStorage.getItem("key");
+// leftbar.innerHTML = playlist;
 
 var rmv = document.querySelector(".rmvbtn");
 if(rmv !== null){
@@ -143,7 +143,7 @@ if(rmv !== null){
     var del = e.path[1];
     console.log(del);
     del.remove();
-    localStorage.setItem("key", leftbar.innerHTML);
+    // localStorage.setItem("key", leftbar.innerHTML);
     location.reload();
   });
 }
