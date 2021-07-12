@@ -1,4 +1,4 @@
-// var i = localStorage.getItem("idx");
+var i = localStorage.getItem("idx");
 
 // 1. Search 
 var input = document.querySelector(".js-submit");
@@ -75,7 +75,6 @@ SoundCloudApi.renderSongs = function(tracks){
         var btn = document.createElement("div");
         btn.classList.add("ui", "bottom", "attached", "button", "js-button");
         btn.addEventListener('click', function(){
-            console.log("Play Clicked");
             SoundCloudApi.addToPlaylist(track.permalink_url);
         })
 
@@ -97,6 +96,7 @@ SoundCloudApi.renderSongs = function(tracks){
     
 
 }
+
 
 
 
