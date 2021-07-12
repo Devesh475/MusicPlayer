@@ -1,3 +1,5 @@
+var i = localStorage.getItem("idx");
+
 // 1. Search 
 var input = document.querySelector(".js-submit");
 input.addEventListener('click', function(e){
@@ -73,6 +75,7 @@ SoundCloudApi.renderSongs = function(tracks){
         var btn = document.createElement("div");
         btn.classList.add("ui", "bottom", "attached", "button", "js-button");
         btn.addEventListener('click', function(){
+            console.log("Play Clicked");
             SoundCloudApi.addToPlaylist(track.permalink_url);
         })
 
@@ -96,34 +99,60 @@ SoundCloudApi.renderSongs = function(tracks){
 }
 
 
+
 // 4. Display cards in playlist
 SoundCloudApi.addToPlaylist = function(song){
-    
+  console.log("inside addto playlist ");
   SC.oEmbed(song, {
         auto_play: true
     }).then(function(embed){
+        console.log("got promise");
         var leftbar = document.querySelector(".js-playlist");
+        console.log("leftbar");
         var box = document.createElement("div")
-        var className = "container"; //+ String(i++);
+        console.log("box");
+        var className = "container" + String(i++);
         localStorage.setItem("idx", i);
         box.classList.add(className);
-
+        console.log("addedclassto box");
         var inner = document.createElement("div");
         inner.classList.add("inner");
         inner.innerHTML = embed.html;
         
+        console.log("created inner");
         var rmv = document.createElement("a");
         rmv.classList.add("rmvbtn","ui", "bottom", "attached", "button", "js-button");
         rmv.innerHTML = "Remove This Song";
         rmv.addEventListener("click", function(){
             var b = rmv.parentElement;
             b.remove();
+            // localStorage.setItem("key", leftbar.innerHTML)
         });
 
         box.appendChild(inner);
         box.appendChild(rmv);
 
+        console.log("appended all items");
+
         leftbar.insertBefore(box, leftbar.firstChild);
+        console.log("append to playlist");
+        // localStorage.setItem("key", leftbar.innerHTML)
     });
 
 }
+
+// var leftbar = document.querySelector(".js-playlist");
+// var playlist = localStorage.getItem("key");
+// leftbar.innerHTML = playlist;
+
+// var rmv = document.querySelector(".rmvbtn");
+// if(rmv !== null){
+//   rmv.addEventListener("click", function(e){
+//     var del = e.path[1];
+//     console.log(del);
+//     del.remove();
+//     // localStorage.setItem("key", leftbar.innerHTML);
+//     location.reload();
+//   });
+// }
+

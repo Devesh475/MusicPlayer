@@ -1,3 +1,5 @@
+var i = localStorage.getItem("idx");
+
 // 1. Search 
 var input = document.querySelector(".js-submit");
 input.addEventListener('click', function(e){
@@ -96,6 +98,7 @@ SoundCloudApi.renderSongs = function(tracks){
 }
 
 
+
 // 4. Display cards in playlist
 SoundCloudApi.addToPlaylist = function(song){
     
@@ -104,7 +107,7 @@ SoundCloudApi.addToPlaylist = function(song){
     }).then(function(embed){
         var leftbar = document.querySelector(".js-playlist");
         var box = document.createElement("div")
-        var className = "container"; //+ String(i++);
+        var className = "container" + String(i++);
         localStorage.setItem("idx", i);
         box.classList.add(className);
 
@@ -118,12 +121,33 @@ SoundCloudApi.addToPlaylist = function(song){
         rmv.addEventListener("click", function(){
             var b = rmv.parentElement;
             b.remove();
+            localStorage.setItem("key", leftbar.innerHTML)
         });
 
         box.appendChild(inner);
         box.appendChild(rmv);
 
         leftbar.insertBefore(box, leftbar.firstChild);
+        localStorage.setItem("key", leftbar.innerHTML)
     });
 
 }
+
+// var leftbar = document.querySelector(".js-playlist");
+// var playlist = localStorage.getItem("key");
+// leftbar.innerHTML = playlist;
+
+// var rmv = document.querySelector(".rmvbtn");
+// if(rmv !== null){
+//   rmv.addEventListener("click", function(e){
+//     var del = e.path[1];
+//     console.log(del);
+//     del.remove();
+//     localStorage.setItem("key", leftbar.innerHTML);
+//     location.reload();
+//   });
+// }
+
+// function myfunc(e){
+//     e.remove();
+// }
