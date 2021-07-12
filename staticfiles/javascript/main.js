@@ -121,33 +121,12 @@ SoundCloudApi.addToPlaylist = function(song){
         rmv.addEventListener("click", function(){
             var b = rmv.parentElement;
             b.remove();
-            localStorage.setItem("key", leftbar.innerHTML)
         });
 
         box.appendChild(inner);
         box.appendChild(rmv);
 
         leftbar.insertBefore(box, leftbar.firstChild);
-        localStorage.setItem("key", leftbar.innerHTML)
     });
 
-}
-
-var leftbar = document.querySelector(".js-playlist");
-var playlist = localStorage.getItem("key");
-leftbar.innerHTML = playlist;
-
-var rmv = document.querySelector(".rmvbtn");
-if(rmv !== null){
-  rmv.addEventListener("click", function(e){
-    var del = e.path[1];
-    console.log(del);
-    del.remove();
-    localStorage.setItem("key", leftbar.innerHTML);
-    location.reload();
-  });
-}
-
-function myfunc(e){
-    e.remove();
 }
