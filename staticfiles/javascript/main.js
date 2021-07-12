@@ -1,5 +1,3 @@
-var i = localStorage.getItem("idx");
-
 // 1. Search 
 var input = document.querySelector(".js-submit");
 input.addEventListener('click', function(e){
@@ -98,8 +96,6 @@ SoundCloudApi.renderSongs = function(tracks){
 }
 
 
-
-
 // 4. Display cards in playlist
 SoundCloudApi.addToPlaylist = function(song){
     
@@ -108,7 +104,7 @@ SoundCloudApi.addToPlaylist = function(song){
     }).then(function(embed){
         var leftbar = document.querySelector(".js-playlist");
         var box = document.createElement("div")
-        var className = "container" + String(i++);
+        var className = "container"; //+ String(i++);
         localStorage.setItem("idx", i);
         box.classList.add(className);
 
