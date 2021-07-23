@@ -1,29 +1,9 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: "Lato", sans-serif;
-    font-weight: 100;
-    font-size: 16px;
-    color: #333;
-    text-align: center;
-    background: #eee;
-  } */
   .playing {
-    position: fixed;
+    position: relative;
     top: 20%;
-    left: 80%;
+    left: 85%;
     width: auto;
     transform: translateX(-50%) translateY(-50%);
-  }
-  .playing:after {
-    content: "Now Playing.";
-    display: block;
-    width: 100%;
-    margin-top: 10px;
   }
   .now.playing .bar {
     display: inline-block;
