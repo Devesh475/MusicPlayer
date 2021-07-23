@@ -41,7 +41,7 @@ SoundCloudApi.renderSongs = function(tracks){
 
     tracks.forEach(track => {
         var card = document.createElement('div');
-        card.classList.add("card");
+        card.classList.add("card", "zoom");
         document.body.appendChild(card);
 
         var imageDiv = document.createElement("div");
@@ -133,21 +133,4 @@ SoundCloudApi.addToPlaylist = function(song){
 
 }
 
-// var leftbar = document.querySelector(".js-playlist");
-// var playlist = localStorage.getItem("key");
-// leftbar.innerHTML = playlist;
 
-// var rmv = document.querySelector(".rmvbtn");
-// if(rmv !== null){
-//   rmv.addEventListener("click", function(e){
-//     var del = e.path[1];
-//     console.log(del);
-//     del.remove();
-//     localStorage.setItem("key", leftbar.innerHTML);
-//     location.reload();
-//   });
-// }
-
-// function myfunc(e){
-//     e.remove();
-// }
